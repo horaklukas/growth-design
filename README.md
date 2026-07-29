@@ -1,36 +1,89 @@
 # growth-design
 
-An agent skill for [Claude Code](https://claude.com/claude-code) that applies product-psychology frameworks from the [Growth.Design](https://growth.design) course when designing or reviewing user-facing experiences.
+Turn your AI agent into a growth designer — an [agent skill](https://skills.sh) that reviews and improves any user-facing experience using the product-psychology frameworks taught by [Growth.Design](https://growth.design).
 
-## What's inside
+Most UX feedback is subjective ("this feels clunky"). This skill makes it structural: every finding names the psychological principle at play, states its effect on the user, and proposes a concrete change — ranked by impact, not by ease.
 
-- `SKILL.md` — the entry point: core psych-level model, framework routing table, review workflow, and quick audit checklists.
-- `references/behavior-model.md` — B = M·A·P behavior model, empathy questions (GEQs/SEQs), Psych framework, 6P stories.
-- `references/bias-framework.md` — the B.I.A.S. loop (Block → Interpret → Act → Store) for auditing a single screen, with the DoorDash worked example.
-- `references/journeys.md` — journey mapping (Peaks, Pits, Transitions) and the four improvement tactics, with the Brave onboarding worked example.
-- `references/communicating.md` — presenting and justifying product decisions, answering feedback, handling difficult archetypes.
-- `references/ethics.md` — regret test, manipulation matrix, Black Mirror test, humane-design principles.
+> The anchor metric: every user has a **Psych level** (mental energy). Each interaction adds psych (motivation, clarity, delight) or drains it (friction, confusion, distrust). **Psych = Motivation − Friction.** When it hits zero, the user drops out.
 
-## Install
+---
 
-### Via [skills.sh](https://skills.sh)
+## 🛠 Included frameworks
+
+- **B = M·A·P behavior model** — behavior happens only when Motivation, Ability, and a Prompt converge; includes the empathy-question templates (GEQs/SEQs) to find the missing lever.
+- **Psych framework** — annotate a screen with the user's psych gains and drains in scan order; the biggest drops are your redesign targets.
+- **B.I.A.S. loop** — Block → Interpret → Act → Store: how the brain's System 1 processes a single screen, with principles and audit questions for each step.
+- **Journey mapping** — boil a flow down to its Peak, Pit, Jumps, Drops, and Transitions; four proven tactics to improve it (peak-end rule).
+- **Communication tactics** — justify decisions with stories, business goals, and named principles; answer difficult feedback gracefully.
+- **Ethics tests** — regret test, manipulation matrix, Black Mirror test; keeps nudges on the influence side of the line.
+
+Each framework lives in its own file under [`references/`](references/) with the full principle lists and a worked example (Airbnb 6P story, DoorDash B.I.A.S. redesign, Brave onboarding journey).
+
+---
+
+## 🚀 Install
 
 ```sh
 npx skills add horaklukas/growth-design
 ```
 
-The CLI downloads the skill and configures it for your agent (Claude Code, Cursor, GitHub Copilot, and others).
+Works with Claude Code, Cursor, GitHub Copilot, and other agents supported by the [skills CLI](https://skills.sh).
 
-### Manually
-
-Copy the repository content into a skill directory:
+Or manually — copy the repository content into a skill directory:
 
 ```
-# project-scoped
-.claude/skills/growth-design/
-
-# or user-scoped
-~/.claude/skills/growth-design/
+.claude/skills/growth-design/      # project-scoped
+~/.claude/skills/growth-design/    # user-scoped
 ```
 
-The skill triggers on requests to design or critique UX flows, screens, onboarding, dialogs, notifications, or questions like "why aren't users doing X".
+---
+
+## 💬 Usage
+
+Example prompts that trigger the skill:
+
+- *"Review the password reset flow through a growth-design lens"*
+- *"Why aren't users finishing onboarding? The funnel drops 40% at step 3"*
+- *"Audit this upgrade dialog before we ship it"*
+- *"Help me prepare the design review for the new scheduling screen"*
+
+### Example output
+
+Findings follow **observation → principle → psych effect → concrete change**:
+
+| # | Observation | Principle | Psych | Suggested change |
+|---|---|---|---|---|
+| 1 | Validation error says only "Password is invalid"; submit stays disabled with no explanation | Clear feedback | − | Live checklist that ticks each password rule as it's satisfied |
+| 2 | SMS code requirement appears with no warning after the email step | Untimely pattern break | − − | Mention the code on the email-sent card, *before* the pit occurs |
+| 3 | Success screen sends the user to sign-in with an empty email field | Peak-end rule | − | Carry the email over — end the draining flow on a high note |
+
+A review ends with the top 3 changes ranked by psych impact and an ethics pass on any suggestion involving defaults, urgency, or loss framing.
+
+---
+
+## 📂 Repository structure
+
+```
+growth-design/
+├── SKILL.md                       # Entry point: routing table, review workflow, audit checklists
+└── references/
+    ├── behavior-model.md          # B = M·A·P, empathy questions, Psych framework, 6P stories
+    ├── bias-framework.md          # Block → Interpret → Act → Store + DoorDash example
+    ├── journeys.md                # Peaks, Pits, Transitions + Brave onboarding example
+    ├── communicating.md           # Design reviews, feedback answers, difficult archetypes
+    └── ethics.md                  # Regret test, manipulation matrix, Black Mirror test
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Improve a reference file or the SKILL.md workflow
+3. Open a pull request describing what the change improves and why
+
+---
+
+## ⚖️ License & attribution
+
+The framework concepts are taught by [Growth.Design](https://growth.design) — this repository is an independent distillation for agent use and is not affiliated with or endorsed by Growth.Design. If this material resonates, take [their course](https://growth.design/psychology); it's excellent.
