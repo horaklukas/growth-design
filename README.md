@@ -1,6 +1,6 @@
-# growth-design
+# Growth Designer
 
-Turn your AI agent into a growth designer — an [agent skill](https://skills.sh) that reviews and improves any user-facing experience using the product-psychology frameworks taught by [Growth.Design](https://growth.design).
+An [agent skill](https://skills.sh) that gives your AI assistant the eyes of a senior growth designer — it reviews and improves any user-facing experience using the product-psychology frameworks taught by [Growth.Design](https://growth.design).
 
 Most UX feedback is subjective ("this feels clunky"). This skill makes it structural: every finding names the psychological principle at play, states its effect on the user, and proposes a concrete change — ranked by impact, not by ease.
 
@@ -86,4 +86,4 @@ growth-design/
 
 ## ⚖️ License & attribution
 
-The framework concepts are taught by [Growth.Design](https://growth.design) — this repository is an independent distillation for agent use and is not affiliated with or endorsed by Growth.Design. If this material resonates, take [their course](https://growth.design/psychology); it's excellent.
+[MIT](LICENSE). The framework concepts are taught by [Growth.Design](https://growth.design) — this repository is an independent distillation for agent use and is not affiliated with or endorsed by Growth.Design. If this material resonates, take [their course](https://growth.design/psychology); it's excellent.
