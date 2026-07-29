@@ -13,6 +13,16 @@ An agent skill for [Claude Code](https://claude.com/claude-code) that applies pr
 
 ## Install
 
+### Via [skills.sh](https://skills.sh)
+
+```sh
+npx skills add horaklukas/growth-design
+```
+
+The CLI downloads the skill and configures it for your agent (Claude Code, Cursor, GitHub Copilot, and others).
+
+### Manually
+
 Copy the repository content into a skill directory:
 
 ```
